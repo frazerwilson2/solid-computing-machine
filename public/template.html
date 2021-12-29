@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link id="mainStyles" rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <svg style="display: none;" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+        <symbol id="backArrow" viewBox="0 0 70 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M33.6748 37.5718C48.9893 37.8618 62.0176 47.4863 67.3115 60.9951C68.9463 56.8276 69.8438 52.2905 69.8438 47.543C69.8438 27.4126 53.7148 11.0508 33.6748 10.6699V0L0 24.2256L33.6748 48.4497V37.5718Z" fill="var(--contrast)"/>
+        </symbol>
+        <symbol id="code" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.99777 4.75443L4.75513 8.99707L44.9966 49.2385L49.2392 44.9959L8.99777 4.75443Z" fill="var(--theme)"/>
+            <path d="M54 5C54 3.67392 53.4732 2.40215 52.5355 1.46447C51.5979 0.526784 50.3261 0 49 0H31V6H48V23H54V5Z" fill="var(--theme)"/>
+            <path d="M5 54H23V48H6V31H0V49C0 50.3261 0.526784 51.5979 1.46447 52.5355C2.40215 53.4732 3.67392 54 5 54V54Z" fill="var(--theme)"/>
+        </symbol>
+        <symbol id="moon" viewBox="0 0 77 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M57.6291 58.129C35.6731 58.129 17.8741 40.33 17.8741 18.373C17.8741 11.744 19.5071 5.496 22.3781 0C9.67307 6.635 0.99707 19.926 0.99707 35.25C0.99707 57.207 18.7961 75.006 40.7521 75.006C56.0771 75.006 69.3681 66.328 76.0031 53.625C70.5061 56.496 64.2601 58.129 57.6291 58.129Z" fill="var(--theme)"/>
+        </symbol>
+        <symbol id="sun" viewBox="0 0 76 76" xmlns="http://www.w3.org/2000/svg">
+            <path d="M75.9218 36.0207V39.8168C75.9218 40.8291 75.0782 41.6726 73.9816 41.6726L63.7743 41.1665C63.3525 41.1665 63.0994 41.4196 63.0151 41.757C62.9307 42.5162 62.762 43.1911 62.5933 43.8659C62.5089 44.2034 62.6777 44.6251 63.0151 44.7095L72.6318 48.1682C73.6441 48.5056 74.0659 49.6022 73.7285 50.6145L72.2944 54.1575C71.8726 55.0855 70.776 55.5916 69.8481 55.0855L60.6531 50.6989C60.3156 50.5302 59.8939 50.6989 59.7251 50.952C59.3877 51.5425 58.9659 52.2173 58.5441 52.7235C58.2911 53.0609 58.3754 53.4827 58.6285 53.7358L66.2207 60.5687C66.9799 61.2436 67.0642 62.5089 66.305 63.1838L63.6056 65.8832C62.8464 66.6425 61.6654 66.5581 60.9905 65.7989L54.1575 58.2067C53.9045 57.9536 53.4827 57.8693 53.1453 58.1223C52.5548 58.5441 51.9643 58.9659 51.2894 59.3034C50.952 59.4721 50.8676 59.8939 51.0363 60.2313L55.4229 69.4263C55.8447 70.3542 55.4229 71.5352 54.495 71.8726L50.952 73.3067C50.024 73.7285 48.843 73.2223 48.5056 72.2101L45.0469 62.5933C44.9626 62.2559 44.5408 62.0871 44.2034 62.1715C43.5285 62.3402 42.7693 62.5089 42.0944 62.5933C41.757 62.6777 41.4196 62.9307 41.5039 63.3525L42.0101 73.5598C42.0944 74.5721 41.2508 75.5 40.1542 75.5H36.3581C35.3458 75.5 34.5022 74.6564 34.5022 73.5598L35.0084 63.3525C35.0084 62.9307 34.7553 62.6777 34.4179 62.5933C33.6587 62.5089 32.9838 62.3402 32.3089 62.1715C31.9715 62.0871 31.5497 62.2559 31.4654 62.5933L28.0067 72.2101C27.6693 73.2223 26.5726 73.6441 25.5603 73.3067L22.0173 71.8726C21.0894 71.4508 20.5832 70.3542 21.0894 69.4263L25.476 60.2313C25.6447 59.8939 25.476 59.4721 25.2229 59.3034C24.6324 58.9659 23.9575 58.5441 23.4514 58.1223C23.114 57.8693 22.6922 57.9536 22.4391 58.2067L15.6061 65.7989C14.9313 66.5581 13.6659 66.6425 12.9911 65.8832L10.2916 63.1838C9.5324 62.4246 9.61676 61.2436 10.376 60.5687L17.9682 53.7358C18.2212 53.4827 18.3056 53.0609 18.0525 52.7235C17.6307 52.133 17.2089 51.5425 16.8715 50.952C16.7028 50.6145 16.281 50.5302 15.9436 50.6989L6.7486 55.0855C5.82067 55.5073 4.63967 55.0855 4.30224 54.1575L2.86816 50.6145C2.44637 49.6866 2.95251 48.5056 3.9648 48.1682L13.5816 44.7095C13.919 44.6251 14.1721 44.2034 14.0034 43.8659C13.8346 43.1911 13.6659 42.4318 13.5816 41.757C13.4972 41.4196 13.1598 41.0821 12.8223 41.1665L1.94022 41.6726C0.843576 41.757 0 40.9134 0 39.9011V36.105C0 35.0927 0.843576 34.2492 1.94022 34.2492L12.1475 34.7553C12.4849 34.7553 12.8223 34.5022 12.9067 34.1648C12.9911 33.4056 13.1598 32.7307 13.3285 32.0559C13.4128 31.7184 13.2441 31.2966 12.9067 31.2123L3.20559 27.5849C2.1933 27.2475 1.77151 26.1508 2.10894 25.1385L3.54302 21.5955C3.9648 20.6676 5.06145 20.1615 5.98939 20.6676L15.1844 25.0542C15.5218 25.2229 15.9436 25.0542 16.1123 24.8011C16.4497 24.2106 16.8715 23.5358 17.2933 22.9453C17.5464 22.6078 17.462 22.186 17.2089 21.933L9.61676 15.1C8.85754 14.4251 8.85754 13.1598 9.5324 12.4849L12.2318 9.78548C12.9911 9.02626 14.1721 9.11062 14.8469 9.86983L21.6799 17.462C21.933 17.7151 22.3547 17.7994 22.6922 17.5464C23.2827 17.1246 23.8732 16.7028 24.4637 16.3654C24.8011 16.1966 24.8855 15.7749 24.7168 15.4374L20.3302 6.24246C19.9084 5.31452 20.3302 4.21788 21.2581 3.79609L24.8011 2.36201C25.7291 1.94022 26.8257 2.44637 27.2475 3.45866L30.7061 13.0754C30.7905 13.4128 31.2123 13.6659 31.5497 13.4972C32.2246 13.3285 32.9838 13.1598 33.6587 13.0754C33.9961 12.9911 34.3335 12.6536 34.2492 12.3162V1.94022C34.1648 0.843576 35.0084 0 36.0207 0H39.8168C40.8291 0 41.6726 0.843576 41.6726 1.94022L41.1665 12.1475C41.1665 12.5693 41.4196 12.8223 41.757 12.9067C42.5162 12.9911 43.1911 13.1598 43.8659 13.3285C44.2034 13.4128 44.6251 13.2441 44.7095 12.9067L48.1682 3.28994C48.5056 2.27765 49.6022 1.85587 50.6145 2.1933L54.1575 3.62737C55.0855 4.04916 55.5916 5.14581 55.0855 6.07374L50.6989 15.2687C50.5302 15.6061 50.6989 16.0279 50.952 16.1966C51.5425 16.6184 52.2173 16.9559 52.8078 17.3777C53.1453 17.6307 53.567 17.5464 53.8201 17.2933L60.6531 9.70112C61.3279 8.9419 62.5933 8.9419 63.2682 9.61676L65.9676 12.3162C66.7268 13.0754 66.6425 14.2564 65.8832 14.9313L58.2911 21.7642C58.038 22.0173 57.9536 22.4391 58.2067 22.7765C58.6285 23.367 59.0503 23.9575 59.3877 24.6324C59.5564 24.9698 59.9782 25.0542 60.3156 24.8855L69.5106 20.4989C70.4386 20.0771 71.6196 20.4989 71.957 21.4268L73.3911 24.9698C73.8129 25.8978 73.3067 26.9944 72.2944 27.4162L62.6777 30.8749C62.3402 31.0436 62.0872 31.381 62.2559 31.7184C62.4246 32.3933 62.5933 33.1525 62.6777 33.8274C62.762 34.1648 63.0994 34.5022 63.4369 34.4179L73.6441 33.9117C75.0782 34.1648 75.9218 35.0084 75.9218 36.0207Z" fill="var(--theme)"/>
+        </symbol>                      
+    </svg>
+    <div class="container">
+        <h1><span>the main sectionx</span></h1>
+        <aside>
+            <button id="returnToMenu" class="menu-return" tabindex="1">
+                <svg class="back-arrow"><use xlink:href="#backArrow"></use></svg>
+            </button>
+            <article>
+                <p>something seomthing</p>
+            </article>
+            <nav>
+                <ul>
+                    <!-- <li style="transform: translateY(10px);"><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li style="transform: translateY(130px);"><a href="#">consectetur adipiscing elit sed</a></li>
+                    <li style="transform: translateY(260px);"><a href="#">do eiusmod tempor incididunt ut labore</a></li> -->
+                    <li><a href="#">et dolore magna aliqua</a></li>
+                    <li><a href="#">Ut enim ad minim veniam</a></li>
+                    <li><a href="#">quis nostrud exercitation ullamco laboris nisi</a></li>
+                    <li><a href="#">ut aliquip ex ea commodo consequat</a></li>
+                    <li><a href="#">Duis aute irure dolor in reprehenderit in</a></li>
+                    <li><a href="#">voluptate velit esse cillum dolore eu</a></li>
+                    <li><a href="#">fugiat nulla pariatur</a></li>
+                    <li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div id="themeSetting" class="circ" aria-hidden="true">
+            <svg class="sun"><use xlink:href="#sun"></use></svg>
+            <svg class="moon"><use xlink:href="#moon"></use></svg>
+        </div>
+        <div class="detail"><span class="detail-text">some other detail</span></div>
+        <button class="punch" id="boom" aria-hidden="true">
+            <svg class="punch-icon"><use xlink:href="#code"></use></svg>
+        </button>
+
+        <footer>
+            <div class="footer-content">
+                some footer stuff
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        // dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        document.getElementById('boom').addEventListener('click', () => {
+            document.head.removeChild(document.getElementById('mainStyles'));
+        });
+        const h1Text = 'the main section';
+        const h1 = document.querySelector('h1 span');
+        const nav = document.querySelector('nav');
+        const article = document.querySelector('article');
+        const returnToMenu = document.querySelector('#returnToMenu');
+        const themeSetting = document.querySelector('#themeSetting');
+
+        const animOpts = {duration: 500, fill: 'forwards'}
+
+        document.querySelector('ul').addEventListener('click', e => {
+            e.preventDefault();
+            const link = e.target;
+            if(link.tagName !== 'A') {return;}
+
+            h1.animate([{opacity: 0}], animOpts);
+            article.animate([{opacity: 0}], animOpts);
+            returnToMenu.animate([{opacity: 0}], animOpts);
+            nav.animate([{opacity: 0}], animOpts)
+                .finished.then(() => {
+                    h1.innerText = link.innerText;
+                    article.innerHTML = '<img src="https://media.giphy.com/media/NEvPzZ8bd1V4Y/giphy.gif" /><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem</p>';
+                    document.body.classList.add('article');
+                    h1.animate([{opacity: 1}], animOpts);
+                    article.animate([{opacity: 1}], animOpts);
+                    returnToMenu.animate([{opacity: 1}], animOpts);
+                });
+        });
+            
+        returnToMenu.addEventListener('click', () => {
+                document.body.classList.remove('article');
+                article.innerHTML = '';
+                h1.innerHTML = h1Text;
+                nav.animate([{opacity: 1}], animOpts)
+        });
+
+        themeSetting.addEventListener('click', () => {
+            document.documentElement.classList.contains('dark') ?
+                document.documentElement.classList.remove('dark') :
+                document.documentElement.classList.add('dark');
+        })
+
+    </script>
+</body>
+</html>
