@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "buildConfig": "bash ./release-tasks.sh",
     "start": "node app.js",
     "dev": "supervisor app.js"
   },

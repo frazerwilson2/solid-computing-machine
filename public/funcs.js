@@ -4,6 +4,10 @@ document.documentElement.classList.remove('no-js');
             document.documentElement.classList.add('dark');
         }
 
+        // set build vars
+        const buildConfig = window.__config[0];
+        document.querySelector('.detail-text').innerHTML = `${window.__config[0].description} / updated ${window.__config[0].updated_at}`;
+
         document.getElementById('boom').addEventListener('click', () => {
             document.head.removeChild(document.getElementById('mainStyles'));
         });

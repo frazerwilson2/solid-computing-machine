@@ -1,0 +1,1 @@
+web: npm run buildConfig && npm run start

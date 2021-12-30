@@ -7,6 +7,7 @@ const app = express();
 // const menuBuilder = require('./snippets/menu.js');
 // const header = require('./snippets/head.js');
 const buildPage = require('./buildPage');
+const template = require('./template');
 app.use(express.static(path.join(__dirname, './public')));
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -78,7 +79,11 @@ return returnPage;
 */
 app.get('/', (req, res) => {
     // res.send(buildPage());
-    res.send(buildPage());
+    res.send(buildPage({heading: 'homepage', menu: `<li>something</li>`}));
+});
+app.get('/template', (req, res) => {
+    // res.send(buildPage());
+    res.send(template);
 });
 /*
 app.get('/*', (req, res) => {

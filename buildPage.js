@@ -50,31 +50,19 @@ const renderFooter = () => `
 </footer>
 `;
 
-const menuItems = ` <!-- <li style="transform: translateY(10px);"><a href="#">Lorem ipsum dolor sit amet</a></li>
-<li style="transform: translateY(130px);"><a href="#">consectetur adipiscing elit sed</a></li>
-<li style="transform: translateY(260px);"><a href="#">do eiusmod tempor incididunt ut labore</a></li> -->
-<li><a href="#">et dolore magna aliqua</a></li>
-<li><a href="#">Ut enim ad minim veniam</a></li>
-<li><a href="#">quis nostrud exercitation ullamco laboris nisi</a></li>
-<li><a href="#">ut aliquip ex ea commodo consequat</a></li>
-<li><a href="#">Duis aute irure dolor in reprehenderit in</a></li>
-<li><a href="#">voluptate velit esse cillum dolore eu</a></li>
-<li><a href="#">fugiat nulla pariatur</a></li>
-<li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>`;
-
-const buildContainer = (heading, menu, article = `<p></p>`) => `
+const buildContainer = (options) => `
 <div class="container">
-    <h1><span>${heading}</span></h1>
+    <h1><span>${options.heading}</span></h1>
     <aside>
         <button id="returnToMenu" class="menu-return" tabindex="1">
             <svg class="back-arrow"><use xlink:href="#backArrow"></use></svg>
         </button>
         <article>
-            ${article}
+            ${options.article || `<p></p>`}
         </article>
         <nav>
             <ul>
-                ${menu}
+                ${options.menu}
             </ul>
         </nav>
     </aside>
@@ -83,7 +71,7 @@ const buildContainer = (heading, menu, article = `<p></p>`) => `
 </div>
 `;
 
-const buildPage = () =>
+const buildPage = (options) =>
     `<!DOCTYPE html>
     <html lang="en" class="no-js">
     <head>
@@ -91,8 +79,8 @@ const buildPage = () =>
     </head>
     <body>
         ${buildIcons()}
-        ${buildContainer('the heading', menuItems)}
-    <script src="./info.js"></script>
+        ${buildContainer(options)}
+    <script src="./config.js"></script>
     <script src="./funcs.js"></script>
     </body>
     </html>`;
