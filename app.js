@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     Storyblok.get('cdn/stories', {})
     .then(response => {
         console.log(response.data.stories)
-        const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/${item.slug}">${item.name}</a></li>`)
+        const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`)
         res.send(buildPage({heading: 'homepage', menu: menuItems.join('')}));
     }).catch(error => { 
         console.log(error)

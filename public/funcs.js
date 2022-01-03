@@ -28,7 +28,7 @@ if(!articles.querySelectorAll('li').length) {
     fetch('https://api.storyblok.com/v1/cdn/stories/?token=up34xEwUnjFp7rluvcfoHwtt')
     .then(res => res.json())
     .then(data => {
-        const menuItems = data.stories.map(item => `<li><a data-slug="${item.slug}" href="/${item.slug}">${item.name}</a></li>`)
+        const menuItems = data.stories.map(item => `<li><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`)
         articles.innerHTML = menuItems.join('');
     })
 }

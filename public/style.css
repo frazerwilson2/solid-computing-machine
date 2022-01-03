@@ -288,3 +288,12 @@ footer {
         --anim-speed: 0ms;
     }
 }
+
+.return-to-menu, .no-js .menu-return {
+    display: none;    
+}
+
+.no-js .article .return-to-menu {
+    display: block;
+    margin: 0 var(--spacing);
+}

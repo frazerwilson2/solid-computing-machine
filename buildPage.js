@@ -57,6 +57,7 @@ const buildContainer = (options) => `
         <button id="returnToMenu" class="menu-return" tabindex="1">
             <svg class="back-arrow"><use xlink:href="#backArrow"></use></svg>
         </button>
+        <a class="return-to-menu" href="/">return to menu</a>
         <article>
             ${options.article || `<p></p>`}
         </article>
