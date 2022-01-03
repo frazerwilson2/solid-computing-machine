@@ -9,7 +9,7 @@ const buildHeader = () => `
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <link id="mainStyles" rel="stylesheet" href="./style.css">
+    <link id="mainStyles" rel="stylesheet" href="/style.css">
 `;
 
 const buildIcons = () => `
@@ -61,7 +61,7 @@ const buildContainer = (options) => `
             ${options.article || `<p></p>`}
         </article>
         <nav>
-            <ul>
+            <ul id="articles" class="articles">
                 ${options.menu}
             </ul>
         </nav>
@@ -77,11 +77,12 @@ const buildPage = (options) =>
     <head>
         ${buildHeader()}
     </head>
-    <body>
+    <body class="${options.isArticle ? 'article' : ''}">
         ${buildIcons()}
         ${buildContainer(options)}
-    <script src="./config.js"></script>
-    <script src="./funcs.js"></script>
+    <script src="/config.js"></script>
+    <script src="/funcs.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/storyblok-js-client@4.0.5/dist/rich-text-resolver.standalone.js"></script>
     </body>
     </html>`;
 
