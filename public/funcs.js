@@ -5,10 +5,10 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 }
 
 // set build vars
-// const buildConfig = window.__config[0];
-// const lastUpdated = new Date(window.__config[0].updated_at);
-// const monthObj = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-// document.querySelector('.detail-text').innerHTML = `${window.__config[0].description} / updated ${lastUpdated.getDate()}/${monthObj[lastUpdated.getMonth()]}/${lastUpdated.getFullYear()}`;
+const buildConfig = window.__config[0];
+const lastUpdated = new Date(window.__config[0].updated_at);
+const monthObj = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+document.querySelector('.detail-text').innerHTML = `${window.__config[0].description} / updated ${lastUpdated.getDate()}/${monthObj[lastUpdated.getMonth()]}/${lastUpdated.getFullYear()}`;
 
 document.getElementById('boom').addEventListener('click', () => {
     document.head.removeChild(document.getElementById('mainStyles'));

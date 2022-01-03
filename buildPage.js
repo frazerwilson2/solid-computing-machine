@@ -36,7 +36,7 @@ const renderPlayzone = () => `
     <svg class="sun"><use xlink:href="#sun"></use></svg>
     <svg class="moon"><use xlink:href="#moon"></use></svg>
 </div>
-<div class="detail"><span class="detail-text">some other detail</span></div>
+<div class="detail"><span class="detail-text"></span></div>
 <button class="punch" id="boom" aria-hidden="true">
     <svg class="punch-icon"><use xlink:href="#code"></use></svg>
 </button>
