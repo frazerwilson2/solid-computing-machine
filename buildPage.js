@@ -81,6 +81,7 @@ const buildPage = (options) =>
     <body class="${options.isArticle ? 'article' : ''}">
         ${buildIcons()}
         ${buildContainer(options)}
+    <script>window.__heading = "${options.homeHeading}"</script>
     <script src="/config.js"></script>
     <script src="/funcs.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/storyblok-js-client@4.0.5/dist/rich-text-resolver.standalone.js"></script>

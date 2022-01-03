@@ -13,7 +13,7 @@ document.querySelector('.detail-text').innerHTML = `${window.__config[0].descrip
 document.getElementById('boom').addEventListener('click', () => {
     document.head.removeChild(document.getElementById('mainStyles'));
 });
-const h1Text = 'the main section';
+const h1Text = window.__heading;
 const h1 = document.querySelector('h1 span');
 const nav = document.querySelector('nav');
 const article = document.querySelector('article');

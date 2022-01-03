@@ -5,7 +5,19 @@ const StoryblokClient = require('storyblok-js-client')
 const app = express();
 const buildPage = require('./buildPage');
 const template = require('./template');
+const gReader = require("g-sheets-api");
 app.use(express.static(path.join(__dirname, './public')));
+
+const readerOptions = {
+  apiKey: 'AIzaSyAGmOOhI6Z6TmRa3td-luaIDhTSmvjSkgM',
+  sheetId: "1V2PygWcwN40blA8FuMNH_zs6IQvIgIUcUZPBrquVHr8",
+};
+
+let todaysHeading = '';
+gReader(readerOptions, (results) => {
+  const todaysHeadingPick = new Date().getDate() % results.length;
+  todaysHeading = results[todaysHeadingPick].Options;
+});
 
 const Storyblok = new StoryblokClient({
     accessToken: 'up34xEwUnjFp7rluvcfoHwtt',
@@ -25,7 +37,7 @@ app.get('/', (req, res) => {
     .then(response => {
         console.log(response.data.stories)
         const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`)
-        res.send(buildPage({heading: 'homepage', menu: menuItems.join('')}));
+        res.send(buildPage({heading: todaysHeading, menu: menuItems.join(''), homeHeading: todaysHeading}));
     }).catch(error => { 
         console.log(error)
     })
@@ -43,7 +55,7 @@ app.get('/posts/*', (req, res) => {
         const post = response.data.story;
         const articleContent = Storyblok.richTextResolver.render(post.content.long_text)
         // const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/${item.slug}">${item.name}</a></li>`)
-        res.send(buildPage({heading: post.name, menu: '', article: articleContent, isArticle: true}));
+        res.send(buildPage({heading: post.name, menu: '', article: articleContent, isArticle: true, homeHeading: todaysHeading}));
     }).catch(error => { 
         console.log(error)
         res.send(`not found`);
