@@ -1,4 +1,5 @@
 const buildPage = require('./buildPage');
+const themes = require('./themes');
 
 const menuItems = ` <!-- <li style="transform: translateY(10px);"><a href="#">Lorem ipsum dolor sit amet</a></li>
 <li style="transform: translateY(130px);"><a href="#">consectetur adipiscing elit sed</a></li>
@@ -12,4 +13,4 @@ const menuItems = ` <!-- <li style="transform: translateY(10px);"><a href="#">Lo
 <li><a href="#">fugiat nulla pariatur</a></li>
 <li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>`;
 
-module.exports = buildPage({heading: 'template heading', menu: menuItems});
+module.exports = buildPage({heading: 'template heading', menu: menuItems, themes: themes() });

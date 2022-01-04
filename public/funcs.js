@@ -8,7 +8,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 const buildConfig = window.__config[0];
 const lastUpdated = new Date(window.__config[0].updated_at);
 const monthObj = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-document.querySelector('.detail-text').innerHTML = `${window.__config[0].description} / updated ${lastUpdated.getDate()}/${monthObj[lastUpdated.getMonth()]}/${lastUpdated.getFullYear()}`;
+document.querySelector('.detail-text').innerHTML = `${window.__config[0].description} /<br/> Updated ${lastUpdated.getDate()}/${monthObj[lastUpdated.getMonth()]}/${lastUpdated.getFullYear()}`;
 
 document.getElementById('boom').addEventListener('click', () => {
     document.head.removeChild(document.getElementById('mainStyles'));
@@ -44,7 +44,11 @@ const goToArticle = (item = {name: '', slug: ''}) => {
             .then(data => {
                 h1.innerText = data.story.name;
                 const renderer = new RichTextResolver()
-                return renderer.render(data.story.content.long_text);
+                const content = renderer.render(data.story.content.long_text);
+                if(data.story.content.image) {
+                    return `<img alt="${data.story.name}" src="${data.story.content.image}" > ${content}`
+                }
+                return content;
             });
             article.innerHTML = articleContent;
             document.body.classList.add('article');

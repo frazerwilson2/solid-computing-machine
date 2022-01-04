@@ -5,6 +5,7 @@ const StoryblokClient = require('storyblok-js-client')
 const app = express();
 const buildPage = require('./buildPage');
 const template = require('./template');
+const themes = require('./themes');
 const gReader = require("g-sheets-api");
 app.use(express.static(path.join(__dirname, './public')));
 
@@ -15,7 +16,7 @@ const readerOptions = {
 
 let todaysHeading = '';
 gReader(readerOptions, (results) => {
-  const todaysHeadingPick = new Date().getDate() % results.length;
+  const todaysHeadingPick = new Date().getDate() % (results.length - 1);
   todaysHeading = results[todaysHeadingPick].Options;
 });
 
@@ -37,7 +38,13 @@ app.get('/', (req, res) => {
     .then(response => {
         console.log(response.data.stories)
         const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`)
-        res.send(buildPage({heading: todaysHeading, menu: menuItems.join(''), homeHeading: todaysHeading}));
+        res.send(buildPage({
+            heading: todaysHeading,
+            menu: menuItems.join(''),
+            homeHeading: todaysHeading,
+            meta: {title: todaysHeading, description: todaysHeading},
+            themes: themes()
+        }));
     }).catch(error => { 
         console.log(error)
     })
@@ -55,15 +62,40 @@ app.get('/posts/*', (req, res) => {
         const post = response.data.story;
         const articleContent = Storyblok.richTextResolver.render(post.content.long_text)
         // const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/${item.slug}">${item.name}</a></li>`)
-        res.send(buildPage({heading: post.name, menu: '', article: articleContent, isArticle: true, homeHeading: todaysHeading}));
+        res.send(buildPage({
+            heading: post.name,
+            menu: '',
+            article: articleContent,
+            image: post.content.image || false,
+            isArticle: true,
+            homeHeading: todaysHeading,
+            meta: {title: post.name, description: post.content.intro},
+            themes: themes()
+        }));
     }).catch(error => { 
         console.log(error)
-        res.send(`not found`);
+        res.send(buildPage({
+            heading: 'no article!',
+            menu: '',
+            article: 'Dunno what happenned there, i have not found the page you are looking for',
+            isArticle: true,
+            homeHeading: todaysHeading,
+            meta: {title: 'article not found', description: 'article not found'},
+            themes: themes()
+        }));
     })
 });
 
 app.get('/*', (req, res) => {
-    res.send('thats 404');
+    res.send(buildPage({
+        heading: 'Its 404 buddy',
+        menu: '',
+        article: 'Try doing something else i guess',
+        isArticle: true,
+        homeHeading: todaysHeading,
+        meta: {title: '404 not found', description: '404 not found'},
+        themes: themes()
+    }));
 });
 
 app.listen(port, () => console.log(`app listening at http://localhost:${port}`))

@@ -1,8 +1,9 @@
-const buildHeader = () => `
+const buildHeader = (meta = {title: '', description: ''}) => `
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>${meta.title}</title>
+    <meta name="description" content="${meta.description}" >
     <style>
         html, body {
             font-family: Arial, sans-serif;
@@ -59,6 +60,7 @@ const buildContainer = (options) => `
         </button>
         <a class="return-to-menu" href="/">return to menu</a>
         <article>
+            ${options.image ? `<img alt="${options.heading}" src="${options.image}" />` : ''}
             ${options.article || `<p></p>`}
         </article>
         <nav>
@@ -72,16 +74,21 @@ const buildContainer = (options) => `
 </div>
 `;
 
-const buildPage = (options) =>
+const buildPage = (options = {themes:{light:'', dark:''}}) =>
     `<!DOCTYPE html>
     <html lang="en" class="no-js">
     <head>
-        ${buildHeader()}
+        ${buildHeader(options.meta)}
     </head>
     <body class="${options.isArticle ? 'article' : ''}">
         ${buildIcons()}
         ${buildContainer(options)}
-    <script>window.__heading = "${options.homeHeading}"</script>
+    <script>
+        window.__heading = "${options.homeHeading}";
+        let root = document.documentElement;
+        root.style.setProperty('--lightTheme', '${options.themes.light}');
+        root.style.setProperty('--darkTheme', '${options.themes.dark}');
+    </script>
     <script src="/config.js"></script>
     <script src="/funcs.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/storyblok-js-client@4.0.5/dist/rich-text-resolver.standalone.js"></script>
