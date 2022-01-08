@@ -1,12 +1,34 @@
+const noStyles = () => `<div class="no-styles">
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<pre>
+_______ ___   _       __    _ _______   _______ _______ __   __ ___     _______ _______   _______ __   __ _______ __    _ 
+|       |   | | |     |  |  | |       | |       |       |  | |  |   |   |       |       | |       |  | |  |       |  |  | |
+|   _   |   |_| |     |   |_| |   _   | |  _____|_     _|  |_|  |   |   |    ___|  _____| |_     _|  |_|  |    ___|   |_| |
+|  | |  |      _|     |       |  | |  | | |_____  |   | |       |   |   |   |___| |_____    |   | |       |   |___|       |
+|  |_|  |     |_ ___  |  _    |  |_|  | |_____  | |   | |_     _|   |___|    ___|_____  |   |   | |       |    ___|  _    |
+|       |    _  |_  | | | |   |       |  _____| | |   |   |   | |       |   |___ _____| |   |   | |   _   |   |___| | |   |
+|_______|___| |_| |_| |_|  |__|_______| |_______| |___|   |___| |_______|_______|_______|   |___| |__| |__|_______|_|  |__|                                                                                                                                          
+</pre>
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</div>`;
+
 const buildHeader = (meta = {title: '', description: ''}) => `
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍🚀</text></svg>">
     <title>${meta.title}</title>
     <meta name="description" content="${meta.description}" >
     <style>
         html, body {
             font-family: Arial, sans-serif;
+        }
+        svg, button {
+            visibility: hidden;
+            width: 0;
+            height: 0;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
@@ -58,7 +80,7 @@ const buildContainer = (options) => `
         <button id="returnToMenu" class="menu-return" tabindex="1">
             <svg class="back-arrow"><use xlink:href="#backArrow"></use></svg>
         </button>
-        <a class="return-to-menu" href="/">return to menu</a>
+        <a id="returnToMenuAnchor" class="return-to-menu" href="/">return to menu</a>
         <article>
             ${options.image ? `<img alt="${options.heading}" src="${options.image}" />` : ''}
             ${options.article || `<p></p>`}
@@ -81,6 +103,7 @@ const buildPage = (options = {themes:{light:'', dark:''}}) =>
         ${buildHeader(options.meta)}
     </head>
     <body class="${options.isArticle ? 'article' : ''}">
+        ${noStyles()}
         ${buildIcons()}
         ${buildContainer(options)}
     <script>

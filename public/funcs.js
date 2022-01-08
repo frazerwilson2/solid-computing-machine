@@ -77,6 +77,11 @@ returnToMenu.addEventListener('click', () => {
     returnToHome();
     window.history.pushState({}, 'homepage', `/`)
 });
+document.querySelector('#returnToMenuAnchor').addEventListener('click', e => {
+    e.preventDefault();
+    returnToHome();
+    window.history.pushState({}, 'homepage', `/`)
+});
 
 themeSetting.addEventListener('click', () => {
     document.documentElement.classList.contains('dark') ?
@@ -86,7 +91,6 @@ themeSetting.addEventListener('click', () => {
 
 window.addEventListener('popstate', function(event) {
     const newPath = window.location.pathname.split('/')[2];
-    console.log(newPath);
     if(!newPath){
         returnToHome();
     }

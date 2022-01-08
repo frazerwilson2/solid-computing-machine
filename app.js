@@ -36,7 +36,6 @@ if (port == null || port == "") {
 app.get('/', (req, res) => {
     Storyblok.get('cdn/stories', {})
     .then(response => {
-        console.log(response.data.stories)
         const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`)
         res.send(buildPage({
             heading: todaysHeading,
@@ -58,7 +57,6 @@ app.get('/posts/*', (req, res) => {
     const postSlug = req.path.split('/')[2];
     Storyblok.get(`cdn/stories/posts/${postSlug}`, {})
     .then(response => {
-        console.log(response.data.story)
         const post = response.data.story;
         const articleContent = Storyblok.richTextResolver.render(post.content.long_text)
         // const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/${item.slug}">${item.name}</a></li>`)

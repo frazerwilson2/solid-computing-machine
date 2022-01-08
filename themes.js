@@ -3,7 +3,7 @@ const darkThemes = [
 ]
 
 const lightThemes = [
-    '#DBFC7E', '#fc7ed8'
+    '#c2ffc8', '#fc7ed8'
 ]
 
 const getTheme = () => {

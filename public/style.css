@@ -39,6 +39,9 @@
     html.no-js .moon {
         display: block;
     }
+    a {
+        color: var(--lightTheme);
+    }
 }
 html.dark {
     --theme: var(--darkTheme);
@@ -50,6 +53,9 @@ html.dark .sun {
 html.dark .moon {
     display: block;
 }
+html.dark a {
+    color: var(--lightTheme);
+}
 
 html, body {
     margin: 0;
@@ -57,6 +63,12 @@ html, body {
     color: var(--contrast);
     background: var(--theme);
     font-family: Arial, sans-serif;
+}
+
+svg, button {
+    width: initial;
+    height: initial;
+    visibility: visible;
 }
 
 h1 {
@@ -83,6 +95,10 @@ p {
     line-height: 1.5;
 }
 
+a {
+    color: var(--darkTheme);
+}
+
 img {
     max-width: 100%;
     border-radius: 0 2rem;
@@ -92,6 +108,9 @@ svg {
     fill: var(--contrast);
 }
 
+article {
+    padding-bottom: 100px;
+}
 .article h1 {
     font-size: 1.8rem;
     line-height: 1.05;
@@ -272,6 +291,10 @@ footer {
         line-height: 1.00;
     }
 
+    .article .container > *:not(aside, h1) {
+        opacity: 0.2;
+    }
+
     .detail {
         border-right: none;
         border-left: var(--border-regular);
@@ -302,4 +325,8 @@ footer {
 .no-js .article .return-to-menu {
     display: block;
     margin: 0 var(--spacing);
+}
+
+.no-styles {
+    display: none;
 }
