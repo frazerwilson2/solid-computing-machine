@@ -226,6 +226,26 @@ ul.articles li a:hover {
     white-space: nowrap;
 }
 
+.social-links {
+    margin-left: var(--spacing);
+}
+.social-link {
+    width: 50px;
+    height: 30px;
+    display: inline-block;
+    margin: var(--spacing) 0 ;
+
+}
+
+.full-size-icon {
+    width: 100%;
+    height: 100%;
+    transition: transform var(--anim-speed);
+}
+.social-link svg:hover {
+    transform: scale(1.2);
+}
+
 .circ {
     width: 2em;
     height: 2em;
@@ -307,8 +327,30 @@ footer {
     }
 
     .circ {
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .play-zone {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .prize {
+        width: 70px;
+        height: 70px;
+        align-self: end;
+        margin: calc(var(--spacing) / 2);
+        position: relative;
+    }
+
+    .prize span {
+        position: absolute;
+        color: var(--theme);
+        left: 28px;
+        text-align: center;
+        line-height: 2.6;
     }
 }
 
