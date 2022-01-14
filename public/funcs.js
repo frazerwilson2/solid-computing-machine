@@ -20,6 +20,7 @@ const article = document.querySelector('article');
 const articles = document.querySelector('#articles');
 const returnToMenu = document.querySelector('#returnToMenu');
 const themeSetting = document.querySelector('#themeSetting');
+const likesBtn = document.querySelector('#likesBtn');
 
 const animOpts = {duration: 500, fill: 'forwards'}
 
@@ -98,3 +99,26 @@ window.addEventListener('popstate', function(event) {
         goToArticle({name: newPath, slug: newPath});
     }
 });
+
+
+likesBtn.addEventListener('click', () => {
+    const headers = {
+        'content-type': 'application/json',
+        'x-apikey': '61e1df3fa0f7d226f9b75e35',
+        'cache-control': 'no-cache',
+    }
+    fetch('https://computing-c273.restdb.io/rest/likes', {headers})
+    .then(res => res.json())
+    .then(data => {
+        const newCount = data[0].count + 1;
+        fetch('https://computing-c273.restdb.io/rest/likes/61e1e126f701f4600004d107', {
+            headers,
+            'method': 'PUT',
+            body: JSON.stringify({"count": newCount}),
+          })
+          .then(()=>{
+              alert(`aww, thanks, in all of history since the dawn of time that button has been clicked just ${newCount} times`);
+              likesBtn.remove();
+          });
+    })
+})

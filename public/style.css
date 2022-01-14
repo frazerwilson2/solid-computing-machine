@@ -280,6 +280,7 @@ footer {
 .footer-content {
     padding-left: var(--spacing);
     border-left: var(--border-regular);
+    font-size: 0.8rem;
 }
 
 @media (min-width: 768px) {
@@ -335,6 +336,10 @@ footer {
         display: flex;
         justify-content: space-between;
         width: 100%;
+    }
+
+    .prizes {
+        display: flex;
     }
 
     .prize {
