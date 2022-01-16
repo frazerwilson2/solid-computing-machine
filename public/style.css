@@ -14,7 +14,6 @@
     --spacing: 1rem;
 }
 
-/* staatliches-regular - latin */
 @font-face {
     font-family: 'Staatliches';
     font-style: normal;
@@ -56,6 +55,10 @@ html.dark .moon {
 html.dark a {
     color: var(--lightTheme);
 }
+
+/** ***********************************************
+GENERIC
+**/
 
 html, body {
     margin: 0;
@@ -107,6 +110,19 @@ img {
 svg {
     fill: var(--contrast);
 }
+
+button {
+    background: var(--theme);
+    border: 1px var( --contrast) solid;
+    border-radius: 2px;
+    color: var(--contrast);
+    margin: 2px;
+    font-family: 'Staatliches', sans-serif;
+}
+
+/** ***********************************************
+THE BUSINESS
+**/
 
 article {
     padding-bottom: 100px;
@@ -197,6 +213,8 @@ ul.articles li a:hover {
     width: var(--punchSize);
     height: var(--punchSize);
     background: var(--contrast);
+    margin: 0;
+    border-radius: 0;
     border: none;
     grid-area: punch;
 }
@@ -234,7 +252,10 @@ ul.articles li a:hover {
     height: 30px;
     display: inline-block;
     margin: var(--spacing) 0 ;
-
+}
+.social-link span {
+    display: inline-block;
+    text-indent: -999px;
 }
 
 .full-size-icon {
@@ -254,6 +275,13 @@ ul.articles li a:hover {
     grid-area: head;
     margin: 5px;
     cursor: pointer;
+}
+
+.play-zone {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    grid-area: foot;
 }
 
 .moon, .sun {
@@ -281,6 +309,17 @@ footer {
     padding-left: var(--spacing);
     border-left: var(--border-regular);
     font-size: 0.8rem;
+    max-width: 50%;
+}
+
+/** ***********************************************
+MEDIA QUERIES
+**/
+
+@media (max-width: 767px) {
+    .desk-only {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -333,9 +372,7 @@ footer {
     }
 
     .play-zone {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+        grid-area: auto;
     }
 
     .prizes {
@@ -364,6 +401,10 @@ footer {
         --anim-speed: 0ms;
     }
 }
+
+/** ***********************************************
+NO JS/STYLES
+**/
 
 .return-to-menu, .no-js .menu-return {
     display: none;    

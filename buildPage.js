@@ -121,18 +121,18 @@ const renderPlayzone = () => `
     <svg class="moon"><use xlink:href="#moon"></use></svg>
 </div>
 <div class="detail"><span class="detail-text"></span></div>
-<button class="punch" id="boom" aria-hidden="true">
+<button class="punch" id="boom" aria-hidden="true" tabindex="-1">
     <svg class="punch-icon"><use xlink:href="#code"></use></svg>
 </button>
 <div class="play-zone">
     <div class="social-links">
-        <a class="social-link" href="https://www.youtube.com/c/codeymccodeface" target="_blank"><svg class="full-size-icon"><use xlink:href="#youtube"></use></svg></a>
-        <a class="social-link" href="https://twitter.com/frazewilson" target="_blank"><svg class="full-size-icon"><use xlink:href="#twitter"></use></svg></a>
-        <a class="social-link" href="https://codepen.io/frazerwilson" target="_blank"><svg class="full-size-icon"><use xlink:href="#codepen"></use></svg></a>
+        <a class="social-link" href="https://www.youtube.com/c/codeymccodeface" target="_blank" rel="noreferrer"><svg class="full-size-icon"><use xlink:href="#youtube"></use></svg><span>YouTube</span></a>
+        <a class="social-link" href="https://twitter.com/frazewilson" target="_blank" rel="noreferrer"><svg class="full-size-icon"><use xlink:href="#twitter"></use></svg><span>Twitter</span></a>
+        <a class="social-link" href="https://codepen.io/frazerwilson" target="_blank" rel="noreferrer"><svg class="full-size-icon"><use xlink:href="#codepen"></use></svg><span>Codepen</span></a>
     </div>
-    <div class="prizes">
+    <div class="prizes desk-only">
         <div class="prize" title="Creator - built a website (2022)"><span>ℱ</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
-        <div class="prize" title="Mentor - Code club/Meetup/Author (2014-18)"><span>#</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
+        <div class="prize" title="Mentor - Code club/Meetup/Author (2014-18)"><span> - #</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
         <div class="prize" title="Wanikani - 800+ burned"><span>あ</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
     </div>
 </div>

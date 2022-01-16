@@ -49,7 +49,6 @@ app.get('/', (req, res) => {
     })
 });
 app.get('/template', (req, res) => {
-    // res.send(buildPage());
     res.send(template);
 });
 
@@ -59,7 +58,6 @@ app.get('/posts/*', (req, res) => {
     .then(response => {
         const post = response.data.story;
         const articleContent = Storyblok.richTextResolver.render(post.content.long_text)
-        // const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/${item.slug}">${item.name}</a></li>`)
         res.send(buildPage({
             heading: post.name,
             menu: '',
