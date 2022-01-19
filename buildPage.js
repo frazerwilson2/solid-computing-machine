@@ -149,12 +149,14 @@ const renderFooter = () => `
 
 const buildContainer = (options) => `
 <div class="container">
-    <h1><span>${options.heading}</span></h1>
-    <aside>
+    <header>
         <button id="returnToMenu" class="menu-return" tabindex="1">
             <svg class="back-arrow"><use xlink:href="#backArrow"></use></svg>
         </button>
         <a id="returnToMenuAnchor" class="return-to-menu" href="/">return to menu</a>
+        <h1>${options.heading}</h1>
+    </header>
+    <aside>
         <article>
             ${options.image ? `<img alt="${options.heading}" src="${options.image}" />` : ''}
             ${options.article || `<p></p>`}

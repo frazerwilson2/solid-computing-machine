@@ -14,7 +14,7 @@ document.getElementById('boom').addEventListener('click', () => {
     document.head.removeChild(document.getElementById('mainStyles'));
 });
 const h1Text = window.__heading;
-const h1 = document.querySelector('h1 span');
+const h1 = document.querySelector('h1');
 const nav = document.querySelector('nav');
 const article = document.querySelector('article');
 const articles = document.querySelector('#articles');

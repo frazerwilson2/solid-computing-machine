@@ -81,15 +81,6 @@ h1 {
     font-size: 3rem;
     line-height: 1;
     padding: 0 var(--spacing) 0 calc(2rem + 10px);
-    grid-area: head;
-    border-bottom: var(--border-regular);
-    display: flex;
-    align-items: end;
-    justify-content: end;
-    text-align: right;
-}
-
-h1 span {
     transition: opacity 400ms;
 }
 
@@ -118,6 +109,7 @@ button {
     color: var(--contrast);
     margin: 2px;
     font-family: 'Staatliches', sans-serif;
+    cursor: pointer;
 }
 
 /** ***********************************************
@@ -149,6 +141,16 @@ article {
     'head head'
     'punch articles'
     '. foot';
+}
+
+header {
+    grid-area: head;
+    border-bottom: var(--border-regular);
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    text-align: right;
+    flex-direction: column;
 }
 
 article, .menu-return {
@@ -351,7 +353,7 @@ MEDIA QUERIES
         line-height: 1.00;
     }
 
-    .article .container > *:not(aside, h1) {
+    .article .container > *:not(aside, header) {
         opacity: 0.2;
     }
 
