@@ -1,9 +1,13 @@
 const darkThemes = [
-    '#07065A', '#410202'
+    {main:'#07065A', contrast: '#ff84d1'},
+    {main:'#410202', contrast: '#faf9cb'},
+    {main:'#042905', contrast: '#fdfff2'},
 ]
 
 const lightThemes = [
-    '#c2ffc8', '#ffc2f6', '#ffcfc2'
+    {main:'#d9ffa8', contrast:'#211e1e'},
+    {main:'#ffc2f6', contrast:'#0c1f5e'},
+    {main:'#ffcfc2', contrast:'#07234c'},
 ]
 
 const getTheme = () => {

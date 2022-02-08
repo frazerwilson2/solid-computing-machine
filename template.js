@@ -1,16 +1,13 @@
 const buildPage = require('./buildPage');
-const themes = require('./themes');
 
-const menuItems = ` <!-- <li style="transform: translateY(10px);"><a href="#">Lorem ipsum dolor sit amet</a></li>
-<li style="transform: translateY(130px);"><a href="#">consectetur adipiscing elit sed</a></li>
-<li style="transform: translateY(260px);"><a href="#">do eiusmod tempor incididunt ut labore</a></li> -->
-<li><a href="#">et dolore magna aliqua</a></li>
-<li><a href="#">Ut enim ad minim veniam</a></li>
-<li><a href="#">quis nostrud exercitation ullamco laboris nisi</a></li>
-<li><a href="#">ut aliquip ex ea commodo consequat</a></li>
-<li><a href="#">Duis aute irure dolor in reprehenderit in</a></li>
-<li><a href="#">voluptate velit esse cillum dolore eu</a></li>
-<li><a href="#">fugiat nulla pariatur</a></li>
-<li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>`;
+const menuItems = [
+{tag_list: [], slug: 'x', mame: 'et dolore magna aliqua'},
+{tag_list: [], slug: 'x', mame: 'Ut enim ad minim veniam'},
+{tag_list: [], slug: 'x', mame: 'quis nostrud exercitation ullamco laboris nisi'},
+{tag_list: [], slug: 'x', mame: 'ut aliquip ex ea commodo consequat'},
+{tag_list: [], slug: 'x', mame: 'Duis aute irure dolor in reprehenderit in'},
+{tag_list: [], slug: 'x', mame: 'voluptate velit esse cillum dolore eu'},
+{tag_list: [], slug: 'x', mame: 'fugiat nulla pariatur'},
+{tag_list: [], slug: 'x', mame: 'Excepteur sint occaecat cupidatat non proident'}]
 
-module.exports = buildPage({heading: 'template heading', menu: menuItems, themes: themes() });
+module.exports = buildPage({heading: 'template heading', menu: menuItems });

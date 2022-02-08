@@ -5,7 +5,6 @@ const StoryblokClient = require('storyblok-js-client')
 const app = express();
 const buildPage = require('./buildPage');
 const template = require('./template');
-const themes = require('./themes');
 const gReader = require("g-sheets-api");
 app.use(express.static(path.join(__dirname, './public')));
 
@@ -36,18 +35,17 @@ if (port == null || port == "") {
 app.get('/', (req, res) => {
     Storyblok.get('cdn/stories', {})
     .then(response => {
-        const menuItems = response.data.stories.map(item => `<li><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`)
         res.send(buildPage({
             heading: todaysHeading,
-            menu: menuItems.join(''),
+            menu: response.data.stories,
             homeHeading: todaysHeading,
             meta: {title: todaysHeading, description: todaysHeading},
-            themes: themes()
         }));
     }).catch(error => { 
         console.log(error)
     })
 });
+
 app.get('/template', (req, res) => {
     res.send(template);
 });
@@ -60,24 +58,22 @@ app.get('/posts/*', (req, res) => {
         const articleContent = Storyblok.richTextResolver.render(post.content.long_text)
         res.send(buildPage({
             heading: post.name,
-            menu: '',
+            menu: [],
             article: articleContent,
             image: post.content.image || false,
             isArticle: true,
             homeHeading: todaysHeading,
             meta: {title: post.name, description: post.content.intro},
-            themes: themes()
         }));
     }).catch(error => { 
         console.log(error)
         res.send(buildPage({
             heading: 'no article!',
-            menu: '',
+            menu: [],
             article: 'Dunno what happenned there, i have not found the page you are looking for',
             isArticle: true,
             homeHeading: todaysHeading,
             meta: {title: 'article not found', description: 'article not found'},
-            themes: themes()
         }));
     })
 });
@@ -85,12 +81,11 @@ app.get('/posts/*', (req, res) => {
 app.get('/*', (req, res) => {
     res.send(buildPage({
         heading: 'Its 404 buddy',
-        menu: '',
+        menu: [],
         article: 'Try doing something else i guess',
         isArticle: true,
         homeHeading: todaysHeading,
         meta: {title: '404 not found', description: '404 not found'},
-        themes: themes()
     }));
 });
 

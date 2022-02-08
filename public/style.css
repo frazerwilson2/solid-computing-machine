@@ -1,3 +1,10 @@
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+VARS, FONTS
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 :root {    
     --lightTheme: #f9c4ff;
     --lightContrast: #333;
@@ -27,6 +34,18 @@
          url('./staatliches-v6-latin-regular.svg#Staatliches') format('svg'); /* Legacy iOS */
   }
 
+@font-face {
+    font-family: 'EmojiSymbols';
+    src: url('./EmojiSymbols-Regular.woff') format('woff');
+}
+
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+dark mode
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 @media (prefers-color-scheme: dark) {
     html.no-js {
         --theme: var(--darkTheme);
@@ -56,9 +75,13 @@ html.dark a {
     color: var(--lightTheme);
 }
 
-/** ***********************************************
-GENERIC
-**/
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+GENERIC HTML
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 
 html, body {
     margin: 0;
@@ -78,14 +101,14 @@ h1 {
     font-family: 'Staatliches', sans-serif;
     color: var(--contrast);
     margin: 0;
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 4rem);
     line-height: 1;
     padding: 0 var(--spacing) 0 calc(2rem + 10px);
     transition: opacity 400ms;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 1.5;
 }
 
@@ -112,12 +135,17 @@ button {
     cursor: pointer;
 }
 
-/** ***********************************************
-THE BUSINESS
-**/
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+CONTAINER, BLOG
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 
 article {
     padding-bottom: 100px;
+    margin: calc(var(--spacing) * 2);
 }
 .article h1 {
     font-size: 1.8rem;
@@ -155,13 +183,12 @@ header {
 
 article, .menu-return {
     display: none;
-    margin: var(--spacing);
 }
 
 aside {
     grid-area: articles;
     overflow: scroll;
-    max-height: inherit;
+    max-height: calc(100vh - 13rem);
 }
 
 .menu-return {
@@ -169,6 +196,7 @@ aside {
     width: 80px;
     height: 40px;
     background: none;
+    margin: var(--spacing);
     cursor: pointer;
 }
 
@@ -196,6 +224,8 @@ ul.articles li {
     font-family: 'Staatliches', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1em;
+    display: flex;
+    gap: var(--spacing);
 }
 
 ul.articles li a {
@@ -211,6 +241,13 @@ ul.articles li a:hover {
     transform: scale(1.1);
 }
 
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+PLAYGROUND
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 .punch {
     width: var(--punchSize);
     height: var(--punchSize);
@@ -314,9 +351,13 @@ footer {
     max-width: 50%;
 }
 
-/** ***********************************************
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 MEDIA QUERIES
-**/
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 
 @media (max-width: 767px) {
     .desk-only {
@@ -339,13 +380,17 @@ MEDIA QUERIES
         max-height: calc(100vh - 120px);
     }
 
+    header {
+        padding-bottom: calc(var(--spacing) / 2);
+    }
+
     h1 {
-        font-size: 4.5rem;
         padding: 0 1rem 0 70px;
     }
 
     aside {
         border-left: var(--border-large);
+        max-height: inherit;
     }
 
     .article h1 {
@@ -394,19 +439,31 @@ MEDIA QUERIES
         color: var(--theme);
         left: 28px;
         text-align: center;
-        line-height: 2.6;
+        line-height: 2.8;
+        font-size: 1rem;
+        font-family: 'Staatliches', sans-serif;
+        display: inline-block;
+        width: 20px;
+    }
+
+    .category {
+        font-family: 'EmojiSymbols';
     }
 }
+
+/*
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+MISC
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+*/
 
 @media (prefers-reduced-motion) {
     :root {
         --anim-speed: 0ms;
     }
 }
-
-/** ***********************************************
-NO JS/STYLES
-**/
 
 .return-to-menu, .no-js .menu-return {
     display: none;    

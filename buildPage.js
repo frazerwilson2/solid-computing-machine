@@ -1,3 +1,6 @@
+const getIcon = require('./categoryIcons');
+const themes = require('./themes');
+
 const noStyles = () => `<div class="no-styles">
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,7 +118,7 @@ const buildIcons = () => `
 </svg>
 `;
 
-const renderPlayzone = () => `
+const renderPlayground = () => `
 <div id="themeSetting" class="circ" aria-hidden="true">
     <svg class="sun"><use xlink:href="#sun"></use></svg>
     <svg class="moon"><use xlink:href="#moon"></use></svg>
@@ -131,9 +134,9 @@ const renderPlayzone = () => `
         <a class="social-link" href="https://codepen.io/frazerwilson" target="_blank" rel="noreferrer"><svg class="full-size-icon"><use xlink:href="#codepen"></use></svg><span>Codepen</span></a>
     </div>
     <div class="prizes desk-only">
-        <div class="prize" title="Creator - built a website (2022)"><span>ℱ</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
-        <div class="prize" title="Mentor - Code club/Meetup/Author (2014-18)"><span> - #</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
-        <div class="prize" title="Wanikani - 800+ burned"><span>あ</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
+        <div class="prize" title="Captured a rare Pokemon"><span>☀</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
+        <div class="prize" title="300 score in 'ganz schön clever'"><span>Ö</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
+        <div class="prize" title="That time I made a website"><span>@</span><svg class="full-size-icon"><use xlink:href="#trophy"></use></svg></div>
     </div>
 </div>
 `;
@@ -147,7 +150,9 @@ const renderFooter = () => `
 </footer>
 `;
 
-const buildContainer = (options) => `
+const buildMenuItems = items => items.map(item => `<li><span class="category desk-only">${getIcon(item.tag_list[0])}</span><a data-slug="${item.slug}" href="/posts/${item.slug}">${item.name}</a></li>`).join('')
+
+const buildContainer = (options = {menu: []}) => `
 <div class="container">
     <header>
         <button id="returnToMenu" class="menu-return" tabindex="1">
@@ -163,16 +168,24 @@ const buildContainer = (options) => `
         </article>
         <nav>
             <ul id="articles" class="articles">
-                ${options.menu}
+                ${buildMenuItems(options.menu)}
             </ul>
         </nav>
     </aside>
-    ${renderPlayzone()}
+    ${renderPlayground()}
     ${renderFooter()}
 </div>
 `;
 
-const buildPage = (options = {themes:{light:'', dark:''}}) =>
+/**
+ * heading - h1 heading
+ * menu - array of menut items
+ * homeHeading: - homepage heading
+ * isArticle: boolean is an article
+ * meta - title and description object
+ */
+const themesOptions = themes();
+const buildPage = (options) =>
     `<!DOCTYPE html>
     <html lang="en" class="no-js">
     <head>
@@ -185,8 +198,10 @@ const buildPage = (options = {themes:{light:'', dark:''}}) =>
     <script>
         window.__heading = "${options.homeHeading}";
         let root = document.documentElement;
-        root.style.setProperty('--lightTheme', '${options.themes.light}');
-        root.style.setProperty('--darkTheme', '${options.themes.dark}');
+        root.style.setProperty('--lightTheme', '${themesOptions.light.main}');
+        root.style.setProperty('--lightContrast', '${themesOptions.light.contrast}');
+        root.style.setProperty('--darkTheme', '${themesOptions.dark.main}');
+        root.style.setProperty('--darkContrast', '${themesOptions.dark.contrast}');
     </script>
     <script src="/config.js"></script>
     <script src="/funcs.js"></script>
