@@ -16,6 +16,7 @@ document.getElementById('boom').addEventListener('click', () => {
 const h1Text = window.__heading;
 const h1 = document.querySelector('h1');
 const nav = document.querySelector('nav');
+const aside = document.querySelector('aside');
 const article = document.querySelector('article');
 const articles = document.querySelector('#articles');
 const returnToMenu = document.querySelector('#returnToMenu');
@@ -52,6 +53,7 @@ const goToArticle = (item = {name: '', slug: ''}) => {
                 return content;
             });
             article.innerHTML = articleContent;
+            aside.scrollTop = 0;
             document.body.classList.add('article');
             h1.animate([{opacity: 1}], animOpts);
             article.animate([{opacity: 1}], animOpts);

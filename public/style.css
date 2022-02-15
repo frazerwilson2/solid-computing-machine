@@ -119,6 +119,7 @@ a {
 img {
     max-width: 100%;
     border-radius: 0 2rem;
+    display: initial;
 }
 
 svg {
@@ -342,13 +343,14 @@ footer {
     padding: var(--spacing);
     display: flex;
     justify-content: end;
+    flex-direction: row-reverse;
 }
 
 .footer-content {
     padding-left: var(--spacing);
     border-left: var(--border-regular);
     font-size: 0.8rem;
-    max-width: 50%;
+    max-width: 40%;
 }
 
 /*
