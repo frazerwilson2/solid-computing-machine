@@ -176,9 +176,9 @@ header {
     grid-area: head;
     border-bottom: var(--border-regular);
     display: flex;
-    align-items: end;
+    /* align-items: end; */
     justify-content: end;
-    text-align: right;
+    /* text-align: right; */
     flex-direction: column;
 }
 
@@ -353,6 +353,10 @@ footer {
     max-width: 40%;
 }
 
+.footer-content button {
+    margin-top: calc(var(--spacing) / 2);
+}
+
 /*
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -371,11 +375,11 @@ MEDIA QUERIES
     .container {
         --punchSize: 80px;
         grid-template-rows: 10em auto 7em;
-        grid-template-columns: auto var(--punchSize) 35%;
+        grid-template-columns: 35% var(--punchSize) auto;
         grid-template-areas:
-            'head head articles'
-            '. punch articles'
-            'foot . articles';        
+            'articles head head'
+            'articles punch .'
+            'articles . foot';        
         margin: 50px;
         border: 10px var(--contrast) solid;
         min-height: calc(100vh - 120px);
@@ -387,11 +391,11 @@ MEDIA QUERIES
     }
 
     h1 {
-        padding: 0 1rem 0 70px;
+        padding: 0 70px 0 1rem;
     }
 
     aside {
-        border-left: var(--border-large);
+        border-right: var(--border-large);
         max-height: inherit;
     }
 
@@ -406,7 +410,7 @@ MEDIA QUERIES
 
     .detail {
         border-right: none;
-        border-left: var(--border-regular);
+        border-right: var(--border-regular);
         grid-column: 2;
     }
 
@@ -418,6 +422,8 @@ MEDIA QUERIES
     .circ {
         width: 35px;
         height: 35px;
+        justify-self: end;
+        z-index: 2;
     }
 
     .play-zone {
