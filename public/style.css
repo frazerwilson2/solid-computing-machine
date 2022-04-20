@@ -88,7 +88,7 @@ html, body {
     padding: 0;
     color: var(--contrast);
     background: var(--theme);
-    font-family: Arial, sans-serif;
+    font-family: georgia, serif;
 }
 
 svg, button {
@@ -109,7 +109,7 @@ h1 {
 
 p {
     font-size: 1.3rem;
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
 a {
@@ -146,7 +146,7 @@ CONTAINER, BLOG
 
 article {
     padding-bottom: 100px;
-    margin: calc(var(--spacing) * 2);
+    margin: calc(var(--spacing) * 3);
 }
 .article h1 {
     font-size: 1.8rem;
@@ -375,7 +375,7 @@ MEDIA QUERIES
     .container {
         --punchSize: 80px;
         grid-template-rows: 10em auto 7em;
-        grid-template-columns: 35% var(--punchSize) auto;
+        grid-template-columns: 42% var(--punchSize) auto;
         grid-template-areas:
             'articles head head'
             'articles punch .'

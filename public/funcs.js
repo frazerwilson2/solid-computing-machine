@@ -102,25 +102,29 @@ window.addEventListener('popstate', function(event) {
     }
 });
 
+const dbheaders = {
+    'content-type': 'application/json',
+    'x-apikey': '61e1df3fa0f7d226f9b75e35',
+    'cache-control': 'no-cache',
+}
+let count = 0;
+fetch('https://computing-c273.restdb.io/rest/likes', {headers: dbheaders})
+.then(res => res.json())
+    .then(data => {
+        console.log('count: ' + data[0].count)
+        count = data[0].count;
+    })
+
 
 likesBtn.addEventListener('click', () => {
-    const headers = {
-        'content-type': 'application/json',
-        'x-apikey': '61e1df3fa0f7d226f9b75e35',
-        'cache-control': 'no-cache',
-    }
-    fetch('https://computing-c273.restdb.io/rest/likes', {headers})
-    .then(res => res.json())
-    .then(data => {
-        const newCount = data[0].count + 1;
-        fetch('https://computing-c273.restdb.io/rest/likes/61e1e126f701f4600004d107', {
-            headers,
-            'method': 'PUT',
-            body: JSON.stringify({"count": newCount}),
-          })
-          .then(()=>{
-              alert(`aww, thanks, in all of history since the dawn of time that button has been clicked just ${newCount} times`);
-              likesBtn.remove();
-          });
-    })
-})
+    const newCount = count + 1;
+    fetch('https://computing-c273.restdb.io/rest/likes/61e1e126f701f4600004d107', {
+        headers: dbheaders,
+        'method': 'PUT',
+        body: JSON.stringify({"count": newCount}),
+        })
+        .then(()=>{
+            alert(`aww, thanks, in all of history since the dawn of time that button has been clicked just ${newCount} times`);
+            likesBtn.remove();
+        });
+});
