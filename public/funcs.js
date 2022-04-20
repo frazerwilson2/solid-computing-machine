@@ -115,7 +115,6 @@ fetch('https://computing-c273.restdb.io/rest/likes', {headers: dbheaders})
         count = data[0].count;
     })
 
-
 likesBtn.addEventListener('click', () => {
     const newCount = count + 1;
     fetch('https://computing-c273.restdb.io/rest/likes/61e1e126f701f4600004d107', {
